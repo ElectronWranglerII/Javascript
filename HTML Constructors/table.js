@@ -1,8 +1,10 @@
-;* HTML Table Utilities
-;* Copyright (C) DeRemee Systems, IXE Electronics LLC
-;* Portions copyright IXE Electronics LLC, Republic Robotics, FemtoLaunch, FemtoSat, FemtoTrack, Weland
-;* This work is made available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
-;* To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+/*
+* HTML Table Utilities
+* Copyright (C) DeRemee Systems, IXE Electronics LLC
+* Portions copyright IXE Electronics LLC, Republic Robotics, FemtoLaunch, FemtoSat, FemtoTrack, Weland
+* This work is made available under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+* To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
+*/
 
 class HTMLTable{
 	constructor(){
