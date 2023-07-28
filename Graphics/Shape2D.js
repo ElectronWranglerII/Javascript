@@ -45,6 +45,8 @@ class Shape2D{
 			case Shape2D.None:
 				break;
 			case Shape2D.Circle:
+				X = X + 0.5;
+				Y = Y + 0.5;
 				Context.beginPath();
 				Context.arc(X, Y, this._Size, 0, Math.PI * 2);
 				break;
@@ -57,7 +59,6 @@ class Shape2D{
 				Context.closePath();
 				break;
 			case Shape2D.Tripoint:
-		console.log(Shape2D.#TO_RAD);
 				Radius = Shape2D.#SQRT_THREE_OVER_TWO * this._Size;
 				Context.beginPath();
 				Context.moveTo(X, Y - this._Size);
@@ -100,11 +101,10 @@ class Shape2D{
 				Context.closePath();
 				break;
 			case Shape2D.Cross:
+				X = X + 0.5;
+				Y = Y + 0.5;
 				Context.beginPath();
-				Context.moveTo(X - this._Weight, Y - this._Size);
-				Context.lineTo(X - this._Weight, Y - this._Weight);
-				Context.lineTo(X - this._Size, Y - this._Weight);
-				Context.lineTo(X - this._Size, Y + this._Weight);
+				Context.moveTo(X - this._Size, Y + this._Weight);
 				Context.lineTo(X - this._Weight, Y + this._Weight);
 				Context.lineTo(X - this._Weight, Y + this._Size);
 				Context.lineTo(X + this._Weight, Y + this._Size);
@@ -113,6 +113,13 @@ class Shape2D{
 				Context.lineTo(X + this._Size, Y - this._Weight);
 				Context.lineTo(X + this._Weight, Y - this._Weight);
 				Context.lineTo(X + this._Weight, Y - this._Size);
+				Context.lineTo(X - this._Weight, Y - this._Size);
+				Context.lineTo(X - this._Weight, Y - this._Weight);
+				Context.lineTo(X - this._Size, Y - this._Weight);
+				Context.closePath();
+				break;
+			case Shape2D.Dagger:
+				Context.beginPath();
 				Context.closePath();
 				break;
 			case Shape2D.X:
@@ -143,6 +150,7 @@ class Shape2D{
 				ShapeType == Shape2D.Diamond ||
 				ShapeType == Shape2D.Star ||
 				ShapeType == Shape2D.Cross ||
+				ShapeType == Shape2D.Dagger ||
 				ShapeType == Shape2D.X){
 				this._Shape = ShapeType;
 			}else{
