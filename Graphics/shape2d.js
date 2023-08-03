@@ -8,6 +8,9 @@ class Shape2D{
 	static Star = 6;
 	static Cross = 7;
 	static X = 8;
+	static Pentagon = 9;
+	static Hexagon = 10;
+	static Octagon = 11;
 	
 	static #TO_RAD = Math.PI / 180;
 	static #SQRT_TWO_OVER_TWO = (Math.sqrt(2)) / 2;
@@ -49,6 +52,26 @@ class Shape2D{
 				Y = Y + 0.5;
 				Context.beginPath();
 				Context.arc(X, Y, this._Size, 0, Math.PI * 2);
+				break;
+			case Shape2D.Pentagon:
+				let RadAngle = 72 * Shape2D.#TO_RAD;
+				let CosAngle = Math.cos(RadAngle);
+				let SinAngle = Math.sin(RadAngle);
+				Context.beginPath();
+				Context.moveTo(X + (this._Size * CosAngle - this._Size * SinAngle), Y + (this._Size * CosAngle + this._Size * SinAngle));
+				CosAngle = Math.cos(2 * RadAngle);
+				SinAngle = Math.sin(2 * RadAngle);
+				Context.lineTo(X + (this._Size * CosAngle - this._Size * SinAngle), Y + (this._Size * CosAngle + this._Size * SinAngle));
+				CosAngle = Math.cos(2 * RadAngle);
+				SinAngle = Math.sin(2 * RadAngle);
+				Context.lineTo(X + (this._Size * CosAngle - this._Size * SinAngle), Y + (this._Size * CosAngle + this._Size * SinAngle));
+				CosAngle = Math.cos(2 * RadAngle);
+				SinAngle = Math.sin(2 * RadAngle);
+				Context.lineTo(X + (this._Size * CosAngle - this._Size * SinAngle), Y + (this._Size * CosAngle + this._Size * SinAngle));
+				CosAngle = Math.cos(2 * RadAngle);
+				SinAngle = Math.sin(2 * RadAngle);
+				Context.lineTo(X + (this._Size * CosAngle - this._Size * SinAngle), Y + (this._Size * CosAngle + this._Size * SinAngle));
+				Context.closePath();
 				break;
 			case Shape2D.Triangle:
 				Radius = Shape2D.#SQRT_THREE_OVER_TWO * this._Size;
